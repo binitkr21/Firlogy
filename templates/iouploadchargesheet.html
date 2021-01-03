@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload FIR</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		html {
+    		height: 100%;
+		}
+
+		body {
+    		height: 100%;
+    		background: linear-gradient(45deg, #2e5baa 50%, #FFFAF0 50%);
+		}
+		div {
+     		position: relative;
+     		z-index: 1;
+   		}
+   		.stle{
+			margin-left: auto;
+    margin-right: auto;
+    display: table;
+   		}
+   		.border {
+    border: 1px solid black!important;
+		}
+    	.container{
+     		 position: absolute;
+     		 top: 50%;
+     		 left: 50%;
+     		 transform: translate(-50%,-50%);
+   		 }
+   		 .upload-body {
+    		border: solid 1px #ccc;
+    		margin: 10px auto;
+    		padding: 20px 30px;
+    		display: inline-block;
+    		box-shadow: 0 0 4px #ccc;
+    		background: linear-gradient(#FFFAF0, #FBFCFC);
+    		overflow: visible;
+    		position: relative;
+    		width: 100%;
+    		height: 100%;
+    		max-width: 1500px;
+    		box-shadow: 10px 10px 5px #696969;
+    		justify-content: center;
+
+		}
+   		 .btn {
+  			background-color: #2e5baa;
+  			border: none;
+  			color: white;
+  			padding: 12px 16px;
+  			font-size: 20px;
+  			cursor: pointer;
+  			width: 100px;
+  			font-weight: bold;
+		}
+		input[type="file"] {
+    			background-color: #fff;
+     			border-radius: 20px;
+     			text-decoration-color: black;
+     			height: 45px;
+     			padding-left: 10px;
+     			padding-top: 7px;
+		}
+		.btn:hover {
+			  background-color: #154294;
+		}
+		.add_form_field{
+		    position: relative;
+    float: right;
+    right: 17rem;
+	height: 40px!important;
+    padding-top: 5px!important;
+		}
+		.mtle{
+			margin-left: auto;
+    margin-right: auto;
+    display: table;
+		}
+		@media screen and (max-width:1199px){
+			.add_form_field {
+    	right: 13rem;
+		}
+		}
+		@media screen and (max-width:991px){
+			.add_form_field {
+    	right: 5rem;
+		}
+		}
+		@media screen and (max-width:767px){
+			.add_form_field {
+    	right: 0;
+		}
+		}
+		@media screen and (max-width:767px){
+			.border{
+    	max-width: 90%;
+		}
+		}
+	</style>
+</head>
+<body>
+	<div class="container text-center">
+		<div class="row align-self-center">
+			<div class="col-sm-12">
+				<div class="upload-body">
+				<h3><p>Upload Chargesheet</p></h3>
+				<br/>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+						<div class="container1">
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+
+							<table class="stle">
+								<tr >
+									<td>
+										<div><input type="file" class="form-control-file border" id="file" name="ffff" required="on"></div>
+									</td>
+								</tr>
+							</table>
+
+				<br/>
+				<br/>
+				<br/>
+				<a><button class="btn" onclick="newDoc()" type="submit"> Upload </button></a>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+			function newDoc() {
+				var file = document.getElementById("file");
+            if(file.files.length == 0 ){
+                alert("No files selected");
+            } else {
+			alert("ChargeSheet has been uploaded");
+			  }
+			  }
+				</script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

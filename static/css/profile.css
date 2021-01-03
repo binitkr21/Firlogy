@@ -1,0 +1,89 @@
+html, body {
+	padding: 0;
+	margin: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.container{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+#profile-body{
+	height: 100%;
+}
+img {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+}
+#image{
+	padding-top: 10px;
+}
+#info{
+	padding-top: 5%;
+}
+@media screen and (min-width:768px){
+  body{
+	background: linear-gradient(90deg, #2e5baa 30%, #FFF 25%, #fff 25%, #fff 25%);
+    }
+  }
+@media screen and (max-width:567px){
+  #image{
+  background: linear-gradient(180deg, #2e5baa 50%, #FFF 50%);
+  }
+  }
+@media screen and (min-width:568px) and (max-width: 767px){
+  .col-sm-12{
+  background: linear-gradient(180deg, #2e5baa 50%, #FFF 50%);
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  }
+  form{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  }
+  }
+#save{
+	background: #2E5BAA;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 180px;
+  height: 40px;
+  border-radius: 15px;
+}
+#save:hover{
+	background: #22488a;
+}
+.col-sm-8 i {
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  padding: 7px 14px;
+  color: dimgray;
+}
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    border-radius: 50%;
+}
+
+#profile-container img {
+    width: 250px;
+    height: 250px;
+}

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload FIR</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		html {
+    		height: 100%;
+		}
+
+		body {
+    		height: 100%;
+    		background: linear-gradient(45deg, #2e5baa 50%, #FFFAF0 50%);
+		}
+		div {
+     		position: relative;
+     		z-index: 1;
+   		}
+    	.container{
+     		 position: absolute;
+     		 top: 50%;
+     		 left: 50%;
+     		 transform: translate(-50%,-50%);
+   		 }
+   		 .upload-body {
+    		border: solid 1px #ccc;
+    		margin: 10px auto;
+    		padding: 20px 30px;
+    		display: inline-block;
+    		box-shadow: 0 0 4px #ccc;
+    		background: linear-gradient(#FFFAF0, #FBFCFC);
+    		overflow: hidden;
+    		position: relative;
+    		width: 100%;
+    		height: 250px;
+    		max-width: 100%;
+    		box-shadow: 10px 10px 5px #696969;
+    		justify-content: center;
+
+		}
+   		 .btn {
+  			background-color: #2e5baa;
+  			border: none;
+  			color: white;
+  			padding: 12px 16px;
+  			font-size: 20px;
+  			cursor: pointer;
+  			width: 100px;
+  			font-weight: bold;
+		}
+		input[type="file"] {
+    			background-color: #fff;
+     			border-radius: 20px;
+     			border: 1px solid;
+     			text-decoration-color: black;
+     			height: 45px;
+     			padding-left: 10px;
+     			padding-top: 7px;
+		}
+		.btn:hover {
+			  background-color: #154294;
+		}
+	</style>
+</head>
+<body>
+	<div class="container text-center">
+		<div class="row align-self-center">
+			<div class="col-sm-12">
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+				<div class="upload-body">
+				<h3><p>Upload Evidence.</p></h3>
+				<br/>
+				<input type="file" name="fir" id="file" multiple/>
+				<br/>
+				<br/>
+				<br/>
+				<a><button class="btn" onclick="newDoc()" type="submit"> Upload </button></a>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+			function newDoc() {
+				var file = document.getElementById("file");
+            if(file.files.length == 0 ){
+                alert("No files selected");
+            } else {
+			alert("Evidence has been uploaded");
+  			window.location.assign("iocaserecord");
+			  }
+			  }
+				</script>

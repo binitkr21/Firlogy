@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration page Texoxist </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/register.css' %}" rel='stylesheet' type='text/css' media="all">
+</head>
+
+<body>
+       <div class="mid-class">
+            <div class="txt-left-side">
+                <h1> Register Here </h1><br><br>
+                <form action="register" method="post" class="validate-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                
+                    <div class="form-left-to-w3l validate-input" data-validate="Aadhar Number is invalid">
+                        <span class="fa fa-address-book" aria-hidden="true"></span>
+                        <input  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="input100" type = "number" maxlength = "12" name="AadhaarNumber" placeholder="Aadhar Number"  required="true" autocomplete="off"/>
+                        <div class="clear"></div>
+                    </div>               
+                    
+                    <div class="form-left-to-w3l validate-input" data-validate="Email is invalid">
+                        <span class="fa fa-envelope" aria-hidden="true"></span>
+                        <input class="input100" type="email" name="email" placeholder="Enter Email Id" required="" autocomplete="off"/>
+                        <div class="clear"></div>
+                    </div>
+                
+                    <div class="form-left-to-w3l validate-input" data-validate = "Password should be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <input class="input100" type="password" id="pass" name="password" placeholder="Enter Password" required=""/>
+                        <div class="clear"></div>
+                    </div>
+                    
+                     <div class="form-left-to-w3l validate-input" data-validate = "Password doesn't match with the above password">
+                        <span class="fa fa-lock" aria-hidden="true"></span>
+                        <input class="input100" type="password" name="password" id="cnfpass" placeholder="Confirm Password" required=""/>
+                        <div class="clear"></div>
+                    </div>
+                    <div>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <h3 style="color: aliceblue;"> {{message}}</h3>
+                        {% endfor %}
+                        {% endif %}
+                    </div> 
+                  
+                    <div class="btnn">
+                        <button type="submit">Register </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <script src="{% static 'js/register.js' %}"></script>
+
+</body>
+</html>

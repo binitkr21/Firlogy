@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SHO Case Detail</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/casedetails.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .btn3{
+  background-color: #2e5baa;
+     margin: 0;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.btn3:hover{
+  background-color: #2e5baa;
+}
+@media screen and (max-width:600px){
+.btn3{
+  top:98.5%!important;
+}
+}
+</style>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="shodashboard">FIRLOGY</a>
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                        src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                        class="notifications-nav-button-head "></a>
+                <ul class="dropdown-menu asea">
+                    <li><a href="#">your profile is been accepted </a></li>
+                    <li><a href="#">You have changed your passwoord</a></li>
+                </ul>
+            </li>
+
+
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+                </a>
+                <ul class="dropdown-menu asea icn">
+                    <li><a href="tel:7903811515"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Police </i></a></li>
+                    <li><a href="tel:7205237804"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Ambulance</i></a></li>
+                </ul>
+            </li>
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                            <button type="button" class="btn btn-danger danger">SOS</button>
+                        </a>
+                        <ul class="dropdown-menu asea icn">
+                            <li><a href="tel:7903811515">Police +91 7903811515</a></li>
+                            <li><a href="tel:7205237804">Ambulance +91 7205237804</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                                src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                                class="notifications-nav-button ">
+                        </a>
+                        <ul class="dropdown-menu asea">
+                            <li><a href="#">your profile is been accepted </a></li>
+                            <li><a href="#">You have changed your passwoord</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% if name %}Welcome {{name}} {% endif %}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="policeprofile">Profile</a></li>
+                        <li><a href="shoresetpwd">Change password</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<div style="text-align:center;font-size:30px;color:red;font-weight:500;">
+    {% if remaining == 'Time limit has already expired , Case has been forwarded to Sp'%}
+    {{remaining}}
+
+    {% else %}
+    {{remaining}} days remaining to take action
+    {% endif %}
+</div>
+
+<div class="container">
+
+    <div class="case-body">
+        <br/>
+        <div class="Personal-details">
+            <div class="title">From</div>
+            {% if case.fir_for == 'myself'%}
+            {{case.fatherorhusbandName}}<br/>
+            {% endif %}
+            {% if case.fir_for == 'others'%}
+            {{aadhaar.name}}<br/>
+            {% endif %}
+            {{aadhaar.address}}<br/>
+            {{aadhaar.phone_number}}<br/>
+            {{user.email}}<br/>
+        </div>
+
+        <div class="date">
+            <span class="title">Date :</span>
+            <u>{{case.date}}</u>
+        </div>
+        <br/>
+        <div class="place">
+            <div class="title">To</div>
+            The Police Officer In charge<br/>
+            {{case.police_station}}
+        </div>
+        <br/>
+        <div class="details">
+            <br/>
+            Respected Sir/Ma'am,
+            <br/>
+            <br/>
+            I would like to bring the following facts to your kind notice:
+            <br/>
+            <p>{{case.complaint}}
+                <br/>
+                <br/>
+                <b>Description Of Accussed</b>
+                {{case.accused_description}}
+                <br/>
+                {% if case.suspected_criminal %}
+                <b>Suspected Criminal</b>1
+                {{case.suspected_criminal}}
+                <br/>
+                {% endif %}
+            </p>
+            I seek your help and request you to kindly register my F.I.R in the subject matter.
+            <br/>
+            <br/>
+            For your ready reference I provide my Aadhaar Number :- {{aadhaar.aadhaar_number}}
+            <br/>
+            Hope you will do the needful favourably at the earliest.
+            <br/>
+        </div>
+        <br/>
+        <div class="subcription">
+            Thanks and regards
+            <br/>
+            Yours Sincerely
+            <br/>
+            <br/>
+            {% if sa %}
+            <img src="{{sa.signature.url}}" height="60px" width="150px" style="border:1px solid black;">
+            {% endif %}
+            <br/>
+            ___________________
+            <br/>
+            {{aadhaar.name}}
+
+
+        </div>
+        <br/>
+        {% if case.sho_signature %}
+        <div class="sign">
+            <p style="text-decoration: overline;">{{case.sho_signature.url}}</p>
+        </div>
+        {% endif %}
+
+        <div class=container style="width:75%;">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading"><b>Suggested Sections Of Indian Penal Code</b></h4>
+                <p>This is just for your refrence,the final decision always lies in your responsible hands</p>
+                <hr>
+                {% for o in output%}
+                <b><p class="mb-0">{{o}}</p></b>
+                {% endfor %}
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="btnn">
+            <a href="shosignpad">
+                <button class="btn1" type="submit">Accept</button>
+            </a>
+            <a href="shoreject">
+                <button class="btn2" type="submit">Reject</button>
+            </a>
+             <a href="tel:+919758390493"><button class="btn btn-primary btn3" type="submit">Call User</button></a>
+        </div>
+        <br/>
+        <br/>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

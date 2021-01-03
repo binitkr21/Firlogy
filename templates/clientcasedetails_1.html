@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Case</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/casedetails_1.css' %}">
+</head>
+<style>
+	.FIR{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 15px;
+}
+</style>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">FIROXIST</a>
+      <img src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}" class="notifications-nav-button-head " >
+            <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav navbar-right">
+          <div class="notifications-nav-container" >
+          <button type="button" class="btn btn-danger danger">SOS</button>
+            <img src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}" class="notifications-nav-button " >
+          </div>
+          </ul> 
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Abc <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Change password</a></li>
+            <li><a href="#">Log out</a></li>
+          </ul>
+        </li>
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="case-body">
+          <br/>
+          <div id="note">FIR rejected by SHO/SP</div>
+          <br/>
+          <button id="reason">Reason</button>          
+          			<br/>
+          			<br/>
+					  <div class="FIR">
+						<div class="title">FIR ID</div>
+						<b>487983787</b>
+						</div>
+						<br/>
+					<div class="Personal-details">
+						<div class="title">Client's detail</div>
+						<b>Name:</b> Abc<br/>
+						<b>Father's/Husband's name:</b> Kim taehyung<br/>
+            <b>Relation:</b> Wife<br/>
+						<b>Gender:</b> Female<br/>
+						<b>Age:</b> 55<br/>
+						<b>Address:</b> Lorem ipsum dolor sit amet <br/>
+						<b>Phone number:</b> 6763976969<br/>
+						<b>Email:</b> Lorem ipsum dolor sit amet<br/> 
+					</div>
+					<br/>
+					<div class="place">
+						<div class="title">Place</div>
+						<b>Police Station:</b> daegu <br/>
+						<b>District:</b> seoul <br/>
+					</div>
+					<br/>
+					<div class="occurrence">
+						<div class="title">Occurrence</div>
+						<b>Date:</b> 13-06-2013<br/>
+						<b>Time:</b> 21:00<br/>
+					</div>
+					<br/>
+					<div class="details">
+						<div class="title">Complain</div>
+      						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.
+      						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.Lorem ipsum dolor sit amet.</p>
+       					<div class="title">Description Of Accussed</div>
+      						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.Lorem ipsum dolor dolor sit.</p>
+        				<div class="title">Suspected Criminal</div>
+      						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit dolor dolor sit.</p>
+      				</div>
+
+      				<br/>
+      				<div class="sign">
+          				<p>Signature</p>
+        			</div>
+              <br/>
+              <br/>
+			</div>
+	</div>
+</body>
+</html>

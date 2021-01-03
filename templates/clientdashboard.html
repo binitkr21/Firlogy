@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Client Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    .chat .party {
+	font-weight: bold;
+}
+.chat .you {
+	color: red;
+}
+.chat .other {
+	color: blue;
+}
+.input a:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+.chat div {
+	margin: 10px 12px 15px;
+	line-height: 20px;
+}
+@media screen and (max-width:600px){
+
+.chat{
+width:57%!important;
+}
+}
+</style>
+<body>
+
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="clienthome">FIRLOGY</a>
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                        src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                        class="notifications-nav-button-head "></a>
+                <ul class="dropdown-menu asea">
+                {% for n in noty %}
+                                <a href="clientcasehistory" style="text-decoration:none;"><li><strong>Case_id: </strong><span>{{n.case_id}}</span> was <span style="color:#2e5baa">{{n.status}}</span><strong> on </strong><span>{{n.date}}</span></li></a>
+                            {% endfor %}
+                </ul>
+            </li>
+
+
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+                </a>
+                <ul class="dropdown-menu asea icn">
+                    <li><a href="tel:7903811515"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Police </i></a></li>
+                    <li><a href="tel:7205237804"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Ambulance</i></a></li>
+                </ul>
+            </li>
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                            <button type="button" class="btn btn-danger danger">SOS</button>
+                        </a>
+                        <ul class="dropdown-menu asea icn">
+                            <li><a href="tel:7903811515">Police +91 7903811515</a></li>
+                            <li><a href="tel:7205237804">Ambulance +91 7205237804</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                                src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                                class="notifications-nav-button ">
+                        </a>
+                        <ul class="dropdown-menu asea">
+                            {% for n in noty %}
+                                <a href="clientcasehistory" style="text-decoration:none;"><li><strong>Case_id: </strong><span>{{n.case_id}}</span> was <span style="color:#2e5baa">{{n.status}}</span><strong> on </strong><span>{{n.date}}</span></li></a>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% if name %}Welcome {{name}} {% endif %}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="userprofile">Profile</a></li>
+                        <li><a href="resetpwd">Change password</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container">
+    {% for message in messages%}
+        <script>window.alert('{{message}}');</script>
+    {% endfor %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\491083-PH56XM-376.jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Register New case</span>
+                    <p>Give your details if any case as per the suggessed guidelines</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="register_fir" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\OJ91A80.jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Get FIR Copy</span>
+                    <p>Give your details if any case as per the suggessed guidelines</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="clientfirdownload" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6 sana">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\3816.jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">View Case History</span>
+                    <p>Give your details if any case as per the suggessed guidelines</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="clientcasehistory" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6 sana">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\Education 2 150p-01-01.jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Get Volunteer</span>
+                    <p>Give your details if any case as per the suggessed guidelines</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="getvolunteer" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div style="position: absolute; overflow: auto; z-index: 1000000; top: 56rem;left: 126rem">
+<button type="button" style="float: right;    border-radius: 7rem; background-color: white; border: transparent; margin-right: 2rem; position: fixed; bottom: 1rem!important; right: -29px!important;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  <img src="{% static 'images/Facebook_Messenger_logo.jpg' %}" style="width:100px;height:100px;    border-radius: 7rem;" >
+</button></div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-side modal-bottom-right " role="document" style="margin-right: 0;">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      </div>
+      <div class="modal-body">
+        <div class="container vinit" style="width: 600px;margin: -59px auto 20px;">
+			<h1 class="title" style="font-size: 30px;font-weight: bold;font-family: 'Courier New', Monospace;text-shadow: #ccc 2px 2px 1px;padding-bottom: 5px;">chat-bot</h1>
+			<div class="chat" style="width: 95%;border: 1px solid #ccc;height: 400px;overflow-y: scroll;background-color: white;border-radius: 10px 0 0 0;"></div>
+			<div class="busy" style="position: absolute;padding: 3px 0;color: #666;display: none;font-size: 11px;"></div>
+			<div class="input" style="margin-top: 20px;">
+				<input type="text" placeholder="Chat with me!" style="vertical-align: top;float: left;border: 1px solid #ccc;padding: 5px;width: 480px;margin: 0;border-radius: 5px;width: auto;"/>
+				<a style="margin-right: 3rem;vertical-align: top;float: right;font-weight: bold;border: 1px solid #ccc;background-color: #efefef;padding: 7px 35px;color: black;text-decoration: none;border-radius: 5px;">Send</a>
+			</div>
+		</div>
+          <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float:left">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+</body>
+</html>
+<script type="text/javascript" src="{% static 'js/jquery-1.7.2.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/chat-bot.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/chatbot_index.js' %}"></script>

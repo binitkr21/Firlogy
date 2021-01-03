@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> FIR Rejection</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+		html {
+    		height: 100%;
+		}
+
+		body {
+    		height: 100%;
+    		background: linear-gradient(45deg, #2e5baa 50%, #FFFAF0 50%);
+		}
+
+		.btn {
+  			background-color: #2e5baa;
+  			border: none;
+  			color: white;
+  			padding: 12px 16px;
+  			font-size: 20px;
+  			cursor: pointer;
+  			width: 100px;
+  			font-family: Electrolize;
+  			font-weight: bold;
+		}
+
+		.btn:hover {
+			  background-color: #154294;
+		}
+		p{
+			font-family: Electrolize;
+			font-weight: bold;
+		}
+		.reject-body {
+    		border: solid 1px #ccc;
+    		margin: 10px auto;
+    		padding: 20px 30px;
+    		display: inline-block;
+    		box-shadow: 0 0 4px #ccc;
+    		background: linear-gradient(#FFFAF0, #FBFCFC);
+    		overflow: hidden;
+    		position: relative;
+    		box-shadow: 10px 10px 5px #696969;
+    
+		}
+		div {
+     		position: relative;
+     		z-index: 1;
+   		}
+    	.container{
+     		 position: absolute;
+     		 top: 50%;
+     		 left: 50%;
+     		 transform: translate(-50%,-50%);
+   		 }
+   		audio{
+   			box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+   			border-radius: 90px;
+   		}
+
+
+    </style>
+
+</head>
+<body>
+<div class="container text-center">
+    <div class="row align-self-center">
+        <div class="col-sm-12">
+            <div class="reject-body">
+                <h3><p>Record your reason for dismissing the FIR.</p></h3>
+                <br/>
+                <br/>
+                <button class="btn" id="record"><i class="fa fa-microphone"></i></button>
+                <button class="btn" id="stop">Stop</button>
+                <br/>
+                <br/>
+                <audio id="recordedAudio" controlsList="nodownload"></audio>
+                <br/>
+                <br/>
+                <br/>
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="btn" type="submit" onclick="validate()"> Done</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function() {
+  $('#stop').hide();
+
+  $('#record').click(function(){
+    $('#stop').show();
+  });
+});
+
+  const startButton = document.getElementById('record');
+  const stopButton = document.getElementById('stop');
+  const audioChunks = [];
+  
+    startButton.addEventListener('click', function() {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+  .then(stream => {
+    const mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.start();
+
+    mediaRecorder.addEventListener("dataavailable", event => {
+      audioChunks.push(event.data);
+    });
+
+    stopButton.addEventListener('click', function() {
+    mediaRecorder.stop();
+    stopStream(stream);
+    
+  });
+
+  mediaRecorder.addEventListener("stop", () => {
+      const audioBlob = new Blob(audioChunks);
+     /* const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl); */
+      recordedAudio.src = URL.createObjectURL(audioBlob);
+      recordedAudio.controls = true;
+    });
+
+  })
+  .catch(function (err0r) {
+          console.log("Something went wrong!");
+        });
+
+
+  });
+
+  function stopStream(stream){
+  stream.getTracks().forEach( track => track.stop() );
+  };
+
+  function validate(){
+		if (audioChunks.length == 0) {
+			alert("No reason recorded.");
+		} else {
+			alert("Your reason has been recorded");
+			window.location.assign("spnewcases");
+		}
+	}
+        
+
+</script>
+</body>
+</html>

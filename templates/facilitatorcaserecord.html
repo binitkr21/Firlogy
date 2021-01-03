@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sho.css' %}">
+    <style>
+  .navbar-brand{
+  color: white!important;
+}
+
+.notifications-nav-container {
+  position: relative;
+  margin: 0!important;
+}
+.notifications-nav-button {
+  position: relative;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-left: 5px;
+  width: 26px;
+  top: 6px;
+}
+.notifications-nav-button-head{
+  display: none;
+}
+.danger{
+  margin-top: 6px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.btn-danger-head{
+  display: none;
+
+}
+  @media screen and (max-width:768px){
+
+  .navbar-toggle {
+    float: left;
+  }
+  .navbar-brand {
+    position: absolute;
+    left: 42%;
+}
+.notifications-nav-container{
+  display: none;
+}
+.notifications-nav-button-head{
+  display: inline;
+  position: relative;
+  cursor: pointer;
+  margin-top: 2px;
+  margin-right: 8px;
+  width: 26px;
+  top: 6px;
+  float: right;
+}
+.btn-danger-head{
+  display: inline;
+  float: right;
+  margin-top: 6px;
+  margin-right: 13px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+}
+  @media screen and (max-width:640px){
+  .navbar-brand {
+    position: absolute;
+    left: 41%;
+  }
+}
+
+@media screen and (max-width:600px){
+.navbar-brand {
+  position: absolute;
+  left: 40%;
+}
+}
+  @media screen and (max-width:500px){
+  .navbar-brand {
+    position: absolute;
+    left: 37%;
+}
+}
+@media screen and (max-width: 320px){
+.navbar-brand {
+    position: absolute;
+    left: 32%;
+}
+}
+@media screen and (max-width: 375px){
+.navbar-brand {
+    position: absolute;
+    left: 36%;
+}
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FIROXIST</a>
+            <img src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                 class="notifications-nav-button-head ">
+            <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <button type="button" class="btn btn-danger danger">SOS</button>
+                    <img src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                         class="notifications-nav-button ">
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">DashboardCLIENT</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Abhishek <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Change password</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="messaging">
+        <div class="inbox_msg">
+            <div class="headind_srch">
+                <div class="recent_heading">
+                    <h3>Case Record</h3>
+                </div>
+                <div class="srch_bar">
+                    <div class="stylish-input-group">
+                        <i class="fa fa-search" aria-hidden="true" class="float-right"></i>
+                        <input type="text" class="search-bar" placeholder="     Search">
+                        <!--  <i class="fa fa-search" aria-hidden="true"></i>-->
+                    </div>
+                </div>
+            </div>
+            <div class="inbox_chat">
+                <div class="chat_list active_chat">
+                    <div class="chat_people">
+                        <div class="chat_ib">
+                            <h5 style="font-weight: bold;">Case ID:<span class="chat_date"
+                                                                         style="color:green">Pending</span></h5>
+                            <p>1. Test, which is a new approach to have all solutions
+                                astrology under one roof.</p><br>
+                            <a class="btn btn-primary btn-sm pull-right"
+                               href="facilitatorcasehistoryrecord">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat_list">
+                    <div class="chat_people">
+                        <div class="chat_ib">
+                            <h5 style="font-weight: bold;">Case ID:<span class="chat_date">closed</span></h5>
+                            <p>2. Test, which is a new approach to have all solutions
+                                astrology under one roof.</p>
+                            <a class="btn btn-primary btn-sm pull-right"
+                               href="facilitatorcasehistoryrecord">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat_list">
+                    <div class="chat_people">
+                        <div class="chat_ib">
+                            <h5 style="font-weight: bold;">Case ID:<span class="chat_date"
+                                                                         style="color:green">Pending</span></h5>
+                            <p>3. Test, which is a new approach to have all solutions
+                                astrology under one roof.</p>
+                            <a class="btn btn-primary btn-sm pull-right"
+                               href="facilitatorcasehistoryrecord">View</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat_list">
+                    <div class="chat_people">
+                        <div class="chat_ib">
+                            <h5 style="font-weight: bold;">Case ID:<span class="chat_date">closed</span></h5>
+                            <p>4. Test, which is a new approach to have all solutions
+                                astrology under one roof.</p>
+                            <a class="btn btn-primary btn-sm pull-right"
+                               href="facilitatorcasehistoryrecord">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

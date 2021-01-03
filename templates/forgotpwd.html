@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/register.css' %}" rel='stylesheet' type='text/css' media="all">
+    <style type="text/css">
+    	.txt-left-side{
+    		text-align: center;
+    		justify-content: center;
+    		position: absolute;
+     		top: 50%;
+     		left: 50%;
+     		transform: translate(-50%,-50%);
+            max-width: 80%;
+    	}
+    	.sent-info, .invalid{
+    		color: red;
+    	}
+    	.img-right-side h3, .txt-left-side h1 {
+         padding-left: 0px;
+}
+    </style>
+</head>
+<body>
+	<div class="mid-class">
+            <div class="txt-left-side">
+                <h1 class="title"> Forgot Password </h1><br><br>
+
+                <div class="info" style="color: white"> Enter the email id below. </div>
+                <br>
+                <br>
+                <form action="#" method="post" class="validate-form">
+                    
+                    <div class="form-left-to-w3l">
+                        <span class="fa fa-envelope" aria-hidden="true"></span>
+                        <input id="email" type="email" name="email" placeholder="Enter Email Id" required="" autocomplete="off"/>
+                        <div class="clear"></div>
+                    </div>
+                	
+                	<div class="invalid">Email is invalid</div>
+                    <div class="sent-info">Link has been send to the email mentioned above. Go to login page.<a href="index"> Login here </a></div>
+                                                      
+                    <div class="btnn">
+                        <button id="submit" type="submit">Reset Password </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+
+        $(document).ready(function() {
+
+        	$(".sent-info").hide();
+        	$(".invalid").hide();
+
+		});
+		$('.validate-form').on('submit',function(e){
+			e.preventDefault();
+			if($("#email").val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/) == null) {
+                $(".invalid").show();
+                $(".sent-info").hide();
+            }else{
+            	$(".invalid").hide();
+            	$(".sent-info").show();
+            }
+    });
+
+    </script>
+</body>
+</html>

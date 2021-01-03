@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Electrolize&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Assign IO</title>
+	<style type="text/css">
+		html {
+    		height: 100%;
+		}
+
+		body {
+    		height: 100%;
+    		background: linear-gradient(30deg, #2e5baa 50%, #FFFAF0 50%);
+		}
+		div {
+     		position: relative;
+     		z-index: 1;
+   		}
+    	.container{
+     		 position: absolute;
+     		 top: 50%;
+     		 left: 50%;
+     		 transform: translate(-50%,-50%);
+   		 }
+   		 .assign-body {
+    		border: solid 1px #ccc;
+    		margin: 10px auto;
+    		padding: 20px 30px;
+    		display: inline-block;
+    		box-shadow: 0 0 4px #ccc;
+    		background: linear-gradient(#FFFAF0, #FBFCFC);
+    		overflow: hidden;
+    		position: relative;
+    		width: 350px;
+    		max-width: 800px;
+    		box-shadow: 10px 10px 5px #696969;
+    		justify-content: center;
+    		text-align: center;
+    
+		}
+   		 .btn {
+  			background-color: #2e5baa;
+  			border: none;
+  			color: white;
+  			padding: 12px 16px;
+  			font-size: 20px;
+  			cursor: pointer;
+  			width: 100px;
+  			font-weight: bold;
+		}
+		select {
+    		background-color: #FBFCFC;
+     		height: 35px;
+     		width: 50%;
+		}
+		p{
+			font-family: Electrolize;
+			font-weight: bold;
+
+		}
+		.btn:hover {
+			  background-color: #154294;
+		}
+	</style>
+</head>
+<body>
+	<div class="container text-center">
+		<div class="row align-self-center">
+			<div class="col-sm-12">
+				<div class="assign-body">
+				<h3><p>Assign IO.</p></h3>
+				<br/>
+				<select>
+					<option value="">Select IO</option>
+  					<option value="Abc">Abc</option>
+  					<option value="Def">Def</option>
+				</select>
+				<br/>
+				<br/>
+				<br/>
+				<button class="btn" type="submit"> Done </button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Email Has been sent to your registered Email Id </h1>
+    <p>Check your email for the password reset link</p>
+    <p>If you haven't recieved an E-mail ,Click the Resend Link</p>
+    <form action="email_sent" method="POST">
+        {% csrf_token %}
+        <a href="forgot_password">Resend Email</a>
+
+    </form>
+</body>
+</html>

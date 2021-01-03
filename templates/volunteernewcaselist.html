@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Case List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/volunteernewcaselist.css' %}">
+    <!--===============================================================================================-->
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="margin-bottom:0">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="volunteerdashboard">FIRLOGY</a>
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                        src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                        class="notifications-nav-button-head "></a>
+                <ul class="dropdown-menu asea">
+                    <li><a href="#">your profile is been accepted </a></li>
+                    <li><a href="#">You have changed your passwoord</a></li>
+                </ul>
+            </li>
+
+
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+                </a>
+                <ul class="dropdown-menu asea icn">
+                    <li><a href="tel:7903811515"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Police </i></a></li>
+                    <li><a href="tel:7205237804"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Ambulance</i></a></li>
+                </ul>
+            </li>
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                            <button type="button" class="btn btn-danger danger">SOS</button>
+                        </a>
+                        <ul class="dropdown-menu asea icn">
+                            <li><a href="tel:7903811515">Police +91 7903811515</a></li>
+                            <li><a href="tel:7205237804">Ambulance +91 7205237804</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                                src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                                class="notifications-nav-button ">
+                        </a>
+                        <ul class="dropdown-menu asea">
+                            <li><a href="#">your profile is been accepted </a></li>
+                            <li><a href="#">You have changed your passwoord</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% if name %}Welcome {{name}} {% endif %}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="volunteerprofile">Profile</a></li>
+                        <li><a href="shoresetpwd">Change password</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1" style="width: 132px;padding-left: 14px;">Request No.</th>
+                        <th class="column2" style="overflow-wrap: break-word!important">Name</th>
+                        <th class="column3" style="overflow-wrap: break-word!important">Phone Number</th>
+                        <th class="column4" style="overflow-wrap: break-word!important">Email</th>
+                        <th class="column5" style="overflow-wrap: break-word!important">State</th>
+                        <th class="column6" style="overflow-wrap: break-word!important">City</th>
+                        <th class="column7" style="max-width: 200px!important;overflow-wrap: break-word!important;">
+                            Address
+                        </th>
+                        <th class="column8" style="overflow-wrap: break-word!important">Accept</th>
+                    </tr>
+                    </thead>
+                    {% for g in gv %}
+                    <tbody>
+                    <tr>
+                        <td class="column1" style="width: 132px;padding-left: 14px;">{{g.request_id}}</td>
+                        <td class="column2" style="overflow-wrap: break-word!important">{{g.name}}</td>
+                        <td class="column3" style="overflow-wrap: break-word!important">{{g.phone_number}}</td>
+                        <td class="column4" style="overflow-wrap: break-word!important">{{g.email}}</td>
+                        <td class="column5" style="overflow-wrap: break-word!important">{{g.state}}</td>
+                        <td class="column6" style="overflow-wrap: break-word!important">{{g.city}}</td>
+                        <td class="column7" style="max-width: 200px;overflow-wrap: break-word!important;">{{g.address}}</td>
+                        <td class="column8" style="overflow-wrap: break-word!important;">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input name="accept" type="submit" style="width : 70px;" class="btn btn-primary"
+                                       value="Accept &nbsp;&nbsp;{{g.request_id}}">
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+<script>
+function acs() {
+	alert("Client Assigned Successfully!!");
+	window.location.assign("#");
+}
+
+
+</script>

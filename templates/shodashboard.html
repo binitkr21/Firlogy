@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/shodashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+@media screen and (max-width:600px){
+.sourav{
+    padding-bottom:12px;
+  }
+}
+
+</style>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="shodashboard">FIRLOGY</a>
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                        src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                        class="notifications-nav-button-head "></a>
+                <ul class="dropdown-menu asea">
+                    <li><a href="#">your profile is been accepted </a></li>
+                    <li><a href="#">You have changed your passwoord</a></li>
+                </ul>
+            </li>
+
+
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+                </a>
+                <ul class="dropdown-menu asea icn">
+                    <li><a href="tel:7903811515"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Police </i></a></li>
+                    <li><a href="tel:7205237804"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Ambulance</i></a></li>
+                </ul>
+            </li>
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                            <button type="button" class="btn btn-danger danger">SOS</button>
+                        </a>
+                        <ul class="dropdown-menu asea icn">
+                            <li><a href="tel:7903811515">Police +91 7903811515</a></li>
+                            <li><a href="tel:7205237804">Ambulance +91 7205237804</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                                src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                                class="notifications-nav-button ">
+                        </a>
+                        <ul class="dropdown-menu asea">
+                            <li><a href="#">your profile is been accepted </a></li>
+                            <li><a href="#">You have changed your passwoord</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% if name %}Welcome {{name}} {% endif %}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="policeprofile">Profile</a></li>
+                        <li><a href="shoresetpwd">Change password</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image" >
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (10).jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Pending request</span>
+                    <p>Do you have any case pending?Check your Requests here.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="pendingrequest" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image sourav">
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (38).jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Case records</span>
+                    <p>The current status and record of all the cases will be shown.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="shocaserecords" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6 ">
+            <div class="card">
+                <div class="card-image ">
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (23).jpg' %} ">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Assign Faciliator  / IO</span>
+                    <p>Assign Facilitator / IO for formal investigation to be conducted.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="shoassignfailitator" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (43).jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Facilitator Records</span>
+                    <p>The record of all the Facilitator or IO will be shown here.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="shofacilitatorrecords" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (48).jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">Add Criminal</span>
+                    <p>Add all the information about the criminals here.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="criminaladd" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{% static 'images\Webp.net-resizeimage (7).jpg' %}">
+
+                </div>
+
+                <div class="card-content">
+                    <span class="card-title">View Criminal Record</span>
+                    <p>View all the details about the criminals here.</p>
+                </div>
+
+                <div class="card-action">
+                    <a href="criminalview" target="_self">
+                        <button type="button" class="btn btn-secondary">Click Here</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+</html>

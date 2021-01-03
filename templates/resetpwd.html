@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/register.css' %}" rel='stylesheet' type='text/css' media="all">
+</head>
+<body>
+<div class="mid-class">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); max-width: 80%;"
+         class="txt-left-side">
+        <h1 class="title">Set your password.</h1><br><br>
+
+        <form method="post" class="validate-form">
+            {% csrf_token %}
+            <div class="form-left-to-w3l validate-input"
+                 data-validate="Password should be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.">
+                <span class="fa fa-lock" aria-hidden="true"></span>
+                <input class="input100" type="password" id="current" name="currentpass"
+                       placeholder="Enter Current Password" required=""/>
+                <div class="clear"></div>
+            </div>
+
+            <div class="form-left-to-w3l validate-input"
+                 data-validate="Password should be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character.">
+                <span class="fa fa-lock" aria-hidden="true"></span>
+                <input class="input100" type="password" id="pass" name="newpass" placeholder="Enter New Password"
+                       required=""/>
+                <div class="clear"></div>
+            </div>
+
+            <div class="form-left-to-w3l validate-input" data-validate="Password doesn't match with the above password">
+                <span class="fa fa-lock" aria-hidden="true"></span>
+                <input class="input100" type="password" name="cnfpass" id="cnfpass" placeholder="Confirm Password"
+                       required=""/>
+                <div class="clear"></div>
+            </div>
+
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+
+            <div class="btnn">
+                <button type="submit">Set Password</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+
+</script>
+
+</body>
+</html>

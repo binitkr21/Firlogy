@@ -1,0 +1,159 @@
+{% load static %}
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Add Criminal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="shodashboard">FIRLOGY</a>
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                        src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                        class="notifications-nav-button-head "></a>
+                <ul class="dropdown-menu asea">
+                    <li><a href="#">your profile is been accepted </a></li>
+                    <li><a href="#">You have changed your passwoord</a></li>
+                </ul>
+            </li>
+
+
+            <li class="dropdown abra">
+                <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger btn-danger-head">SOS</button>
+                </a>
+                <ul class="dropdown-menu asea icn">
+                    <li><a href="tel:7903811515"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Police </i></a></li>
+                    <li><a href="tel:7205237804"><i class="fa fa-phone" style="font-size:20px" aria-hidden="true">
+                        Ambulance</i></a></li>
+                </ul>
+            </li>
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="notifications-nav-container">
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown">
+                            <button type="button" class="btn btn-danger danger">SOS</button>
+                        </a>
+                        <ul class="dropdown-menu asea icn">
+                            <li><a href="tel:7903811515">Police +91 7903811515</a></li>
+                            <li><a href="tel:7205237804">Ambulance +91 7205237804</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown abra">
+                        <a class="dropdown-toggle uriba" data-toggle="dropdown"><img
+                                src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}"
+                                class="notifications-nav-button ">
+                        </a>
+                        <ul class="dropdown-menu asea">
+                            <li><a href="#">your profile is been accepted </a></li>
+                            <li><a href="#">You have changed your passwoord</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{% if name %}Welcome {{name}} {% endif %}<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="policeprofile">Profile</a></li>
+                        <li><a href="shoresetpwd">Change password</a></li>
+                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class = "text-center mt-5"><h2>Enter Criminal Details</h2></div>
+<div class="container mt-5">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id">Aadhaar Number</label>
+            <input type="number" class="form-control" id="id" name = "aadhaar" placeholder="Aadhaar Number" required="on">
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name = "name" placeholder="Name" required="on">
+        </div>
+        <div class="form-group">
+            <label for="crime">Crime Type</label>
+            <select class="form-control" id="crime" name = "crime"  required="on">
+                <option value="Theft">Theft</option>
+                <option value="Murder">Murder</option>
+                <option value="Assault">Assault</option>
+                <option value="Rape">Sexual Assult / Rape</option>
+                <option value="Scam">Scam</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Police">Police Station</label>
+            <input type="text" class="form-control" id="Police" name = "police" placeholder="Police Station" required="on">
+        </div>
+        <div class="form-group">
+            <label for="City">City</label>
+            <input type="text" class="form-control" id="City" name = "city" placeholder="City" required="on">
+        </div>
+         <div class="form-group">
+            <label for="State">State</label>
+            <input type="text" class="form-control" id="State" name = "state" placeholder="State" required="on">
+        </div>
+         <div class="form-group">
+            <label for="Address">Address</label>
+            <input type="text" class="form-control" id="Address" name = "address" placeholder="Address" required="on">
+        </div>
+        <div class="form-group">
+            <label for="Image">Upload Image</label>
+            <input type="file" class="form-control" id="Image" name = "image" required="on">
+        </div>
+
+    <center><input type="submit" class="btn btn-success" value="Add" ></center>
+
+
+    </form>
+
+
+</div>
+
+<br>
+<br>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

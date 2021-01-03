@@ -1,0 +1,119 @@
+
+body {
+    background-color: #F2F3F4 ;
+}
+
+
+#otp-body {
+    border: solid 1px #ccc;
+    margin: 10px auto;
+    padding: 20px 30px;
+    display: inline-block;
+    box-shadow: 0 0 4px #ccc;
+    background: linear-gradient(#FFFAF0, #FBFCFC);
+    overflow: hidden;
+    position: relative;
+    max-width: 450px;
+    font-family: Poppins-Regular, sans-serif;
+    box-shadow: 10px 10px 5px #696969;
+    
+}
+
+  #form {
+      max-width: 240px;
+      margin: 25px auto 0;
+      font-family: Poppins-Regular, sans-serif;
+      border-radius: 20px;
+    }
+       
+      input {
+        margin: 0 5px;
+        text-align: center;
+        line-height: 80px;
+        font-size: 20px;
+        border: solid 1px #ccc;
+        box-shadow: 0 0 5px #ccc inset;
+        outline: none;
+        width: 15%;
+        height: 35px;
+        transition: all .2s ease-in-out;
+        border-radius: 3px;
+        font-family: Poppins-Regular, sans-serif;
+                
+        &::selection {
+          background: transparent;
+        }
+      }
+    /*  button {
+        margin: 30px 0 50px;
+        width: 100%;
+        padding: 6px;
+        background-color: #B85FC6;
+        border: none;
+        text-transform: uppercase;
+          font-family: Poppins-Regular, sans-serif;
+      } */
+    }
+  } 
+  div {
+     position: relative;
+     z-index: 1;
+   }
+    .container{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    } 
+
+
+button[type=submit] {
+    background: #2E5BAA;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 200px;
+    height: 30px;
+    border-radius: 2px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    padding-left: 15px;
+}
+button[type=submit]:hover,a.for:hover,.w3layouts_more-buttn a:hover{opacity:0.8;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

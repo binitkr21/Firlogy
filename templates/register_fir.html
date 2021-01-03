@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Complaint</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="{% static 'css/register_fir.css' %}" rel='stylesheet' type='text/css' media="all">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm  navbar-dark navbar-inverse" id="nav">
+
+
+  <!-- Brand -->
+  <a class="navbar-brand container-fluid" href="#">FIROXIST</a>
+
+  <!-- Links-->
+  <ul class="navbar-nav">
+
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        {% if name %}Welcome {{name}} {% endif %}
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Account</a>
+        <a class="dropdown-item" href="#">Change Password</a>
+        <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+      </div>
+    </li>
+  </ul>
+  <button class="btn btn-danger navbar-btn">SOS</button>
+    <img src="{% static 'images/notification_icon_rollover-8605696c9793c070a6ba19a4e8a99c6c.svg' %}" class="notifications-nav-button " >
+   <!-- <i class="fa fa-bell-o fa-2x" aria-hidden="true" style="color: white"></i>-->
+</nav>
+<br>
+
+
+
+<!-- Form -->
+<div class="container">
+	<div class="row">
+		<div class="col">
+<form class="text-center" id="register" action="register_fir" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <b><h1 style="font-family: 'Cinzel', serif;">FIR Registration Form</h1></b>
+
+
+    <div class="form-group row">
+      <label for="inlineRadioOptions1" class="col-sm-3 col-form-label">FIR for <span class="required">*</span></label>
+      <div class="col-sm-2">
+      <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="myself" checked>
+      <label class="form-check-label" for="inlineRadio1">Myself</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="others">
+      <label class="form-check-label" for="inlineRadio2">Others</label>
+    </div>
+    </div>
+    </div>
+
+<div class="form-group row validate-input" data-validate="This field is required" id="myself-register">
+    <label for="inputfhn" class="col-sm-3 col-form-label"><span class="required" id="fhn" ></span></label>
+    <div class="col-sm-7">
+    <input type="text" class="form-control" id="inputfhn"  placeholder="Father's/Husband's Name *"  name="forhname">
+    <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+<div id="others-register">
+<div class="form-group row validate-input" data-validate="This filed is required" >
+    <label for="inputRelation" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputRelation" placeholder="Relation *" name="orelation">
+      <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row" >
+    <label for="inputName" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputName" placeholder="Victim's Name *" name="ovictim">
+      <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+  <div class="form-group row valiadte-input" data-validate="This field is required">
+	<label for="inlineRadioOptions" class="col-sm-3 col-form-label">Victim's Gender <span class="required">*</span></label>
+	<div class="col-sm-3">
+	<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="male">
+  <label class="form-check-label" for="inlineRadio1">Male</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio4" value="female">
+  <label class="form-check-label" for="inlineRadio2">Female</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio5" value="others">
+  <label class="form-check-label" for="inlineRadio3">Others</label>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<div class="form-group row validate-input" data-valiadte="This is required" >
+    <label for="inputCity" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputCity" placeholder="City *" name="city">
+      <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row validate-input" data-valiadte="This is required">
+    <label for="inputPolice" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <input type="text" class="form-control" id="inputPolice" placeholder="Police Station *" name="police_station">
+      <i class="fa fa-user-secret fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row">
+    <label for="inputDate" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7 validate-input" data-valiadte="This is required">
+      <input type="Date" class="form-control" id="inputDate" placeholder="Date *" name="date" value="date:d-m-Y">
+      <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row">
+    <label for="inputTime" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <input type="Time" class="form-control" id="inputTime" placeholder="Time *" name = time>
+      <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row">
+    <label for="inputComplain" class="col-sm-3 col-form-label"><span class="required"></span></label>
+    <div class="col-sm-7">
+      <textarea type="text" style="height:140px;" class="form-control" id="inputComplain" placeholder="Complain *" name="complaint"></textarea>
+      <i class="fa fa-list fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+
+<div class="form-group row">
+    <label for="inputAccused" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-7">
+      <textarea type="text" style="height:140px;" class="form-control" id="inputAccused" placeholder="Description of Accused or Suspected " name="doa"></textarea>
+      <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+
+
+<div class="form-group row">
+    <label for="inputCriminals" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-7">
+        <label>Check the Frequent Offenders for flagging suspected criminals</label>&nbsp;
+       <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">Choose</button>
+    </div>
+  </div>
+
+
+
+  <!-- Large modal -->
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+
+         <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="../images/img1.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Criminal 1</h4>
+                <p class="card-text">
+                    This is a longer card with supporting
+                    text below as a natural lead-in.
+                </p>
+                   <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">select</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="../images/img2.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Criminal 2</h4>
+                <p class="card-text">
+                    This card has supporting text below
+                    as a natural lead-in to additional
+                    content.
+                </p>
+         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">select</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="../images/img3.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Criminal 3</h4>
+                <p class="card-text">
+                    This is a wider card with supporting
+                    text below as a natural lead-in.
+                </p>
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">select</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../images/img4.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Criminal 4</h4>
+                <p class="card-text">
+                    This is a wider card with supporting
+                    text below as a natural lead-in.
+                </p>
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">select</button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="../images/img5.jpg">
+            <div class="card-block">
+                <h4 class="card-title">Criminal 5</h4>
+                <p class="card-text">
+                    This is a wider card with supporting
+                    text below as a natural lead-in.
+                </p>
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">select</button>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group row">
+    <label for="inputDetails" class="col-sm-3 col-form-label"></label>
+    <div class="col-sm-7">
+      <input type="file" class="form-control" id="inputDetails" placeholder="Suplimentary Details" name="evidence" multiple>
+      <i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i>
+    </div>
+  </div>
+                        {% if messages %}
+                        {% for message in messages %}
+                        <h3 style="color: aliceblue;"> {{message}}</h3>
+                        {% endfor %}
+                        {% endif %}
+
+  <div class="form-group row">
+   <div class="col text-center">
+     <div class="btn">
+      <button type="submit">Upload your signature</button>
+      </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+ </div>
+</form>
+
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+        
+        
+         function validation(){
+            
+            var inputfhn = document.getElementById('inputfhn').values;
+        
+         if(inputfhn =="number"){
+                document.getElementById('fhn').innerHTML = "Please enter characters only";
+                return false;
+            }
+        
+        
+    </script>
+    <script src="{% static 'js/register.js' %}"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+        $("#others-register").hide();
+			$("#inlineRadio2").click(function(){
+				$("#others-register").show();
+				$("#myself-register").hide();
+			});
+			$("#inlineRadio1").click(function(){
+				$("#others-register").hide();
+				$("#myself-register").show();
+			});
+      $("#register").validate();
+		}); 
+    
+</script>
+</body>
+</html>

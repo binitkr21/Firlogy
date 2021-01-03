@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login page Texoxist </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel='stylesheet' type='text/css' media="all">
+
+</head>
+
+<body>
+<div class="w3layouts-two-grids">
+    <div class="mid-class">
+        <div class="txt-left-side">
+            <h2> Login Here </h2><br><br>
+            <form method="post" id="dash" action="index">
+                {% csrf_token %}
+                <div class="form-left-to-w3l">
+                    <span class="fas fa-address-book" aria-hidden="true"></span>
+
+                    <select class="form-control form-control-sm" id="forrms" name="selector">
+                        <option value="nothing" selected>Select an Option</option>
+                        <option value="user">User</option>
+                        <option value="sho">SHO</option>
+                        <option value="io">Facilitator/IO</option>
+                        <option value="sp">SP</option>
+                        <option value="volunteer">Volunteer</option>
+                        <option value="magistrate">Magistrate</option>
+                    </select>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="form-left-to-w3l">
+                    <span class="fas fa-address-book" aria-hidden="true"></span>
+                    <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                           type="number" maxlength="10" name="phoneNumber" placeholder="Phone Number" autocomplete="off"
+                           required>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="form-left-to-w3l ">
+
+                    <span class="fa fa-lock" aria-hidden="true"></span>
+                    <input type="password" name="password" placeholder="Password" autocomplete="off" required="">
+                    <div class="clear"></div>
+                </div>
+                <div class="main-two-w3ls">
+                    <div class="left-side-forget">
+                        <a href="forgotpwd" class="for">Forgot password...?</a>
+                    </div>
+                </div>
+                <div class="btnn">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+            {% if messages %}
+            {% for message in messages %}
+            <h3 style="color: aliceblue;"> {{message}}</h3>
+            {% endfor %}
+            {% endif %}
+            {{sig}}
+            <div class="w3layouts_more-buttn">
+                <h3>Don't Have an account..?
+                    <a href="register">Register Here
+                    </a>
+                </h3>
+            </div>
+
+        </div>
+        <div class="img-right-side">
+            <h3>Welcome To Firlogy</h3>
+            <p>An Online platform for the regitrstion for your FIR</p>
+            <img src="{% static 'images/b11.jpg' %}" class="img-fluid" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+        addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+
+</script>
+<script type="text/javascript">
+   function myFunction() {
+
+    const x = document.getElementById("forrms");
+    const i = x.options[x.selectedIndex].value;
+    const attr = document.createAttribute("action");
+    attr.value =i;
+    const h = document.getElementsByTagName("form")[0];
+    h.setAttributeNode(attr); 
+
+        }
+
+</script>
+</body>
+
+</html>
